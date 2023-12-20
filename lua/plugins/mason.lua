@@ -23,6 +23,7 @@ return {
         "html",
         "cssls",
         "lua_ls",
+        "rust_analyzer",
       },
       automatic_installation = true, -- this is for lsp config, not installations of lsps themselves
     })
