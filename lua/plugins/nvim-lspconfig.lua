@@ -13,8 +13,21 @@ return {
     local keymap = vim.keymap
 
     local opts = { noremap = true, silent = true }
-    local on_attach = function(_, bufnr)
+    local on_attach = function(client, bufnr)
       opts.buffer = bufnr
+
+      if client.name == "omnisharp" then
+        ---@type string[]
+        local tokenModifiers = client.server_capabilities.semanticTokensProvider.legend.tokenModifiers
+        for i, v in ipairs(tokenModifiers) do
+          tokenModifiers[i] = v:gsub(" ", "_")
+        end
+        ---@type string[]
+        local tokenTypes = client.server_capabilities.semanticTokensProvider.legend.tokenTypes
+        for i, v in ipairs(tokenTypes) do
+          tokenTypes[i] = v:gsub(" ", "_")
+        end
+      end
 
       opts.desc = "Show LSP references"
       keymap.set("n", "gR", "<cmd>Telescope lsp_references<CR>", opts) -- show definition, references
@@ -93,9 +106,16 @@ return {
       },
     })
 
-    lspconfig["csharp_ls"].setup({
-      on_attach = on_attach,
-      capabilities = capabilities,
+    -- lspconfig["csharp_ls"].setup({
+    --   on_attach = on_attach,
+    --   capabilities = capabilities,
+    -- })
+    lspconfig["omnisharp"].setup({
+      cmd = { "omnisharp", "--languageserver", "--hostPID", tostring(vim.fn.getpid()) },
+      server = {
+        on_attach = on_attach,
+        capabilities = capabilities,
+      },
     })
 
     require("rust-tools").setup({
