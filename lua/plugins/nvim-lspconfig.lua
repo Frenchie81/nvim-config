@@ -4,6 +4,7 @@ return {
   dependencies = {
     "hrsh7th/cmp-nvim-lsp",
     { "antosha417/nvim-lsp-file-operations", config = true },
+    { "simrat39/rust-tools.nvim" },
   },
   config = function()
     local lspconfig = require("lspconfig")
@@ -97,9 +98,11 @@ return {
       capabilities = capabilities,
     })
 
-    lspconfig["rust_analyzer"].setup({
-      on_attach = on_attach,
-      capabilities = capabilities,
+    require("rust-tools").setup({
+      server = {
+        on_attach = on_attach,
+        capabilities = capabilities,
+      },
     })
   end,
 }
