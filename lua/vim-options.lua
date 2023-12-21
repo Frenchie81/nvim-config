@@ -12,9 +12,5 @@ augroup("setCsharpIndent", { clear = true })
 autocmd("Filetype", {
   group = "setCsharpIndent",
   pattern = { "cs" },
-  command = "setlocal autoindent noexpandtab tabstop=4 shiftwidth=4"
+  command = "setlocal expandtab tabstop=4 shiftwidth=4"
 })
-
---local os = vim.loop.os_uname().sysname
--- if (os == "Windows_NT")
---end
