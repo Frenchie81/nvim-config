@@ -10,6 +10,8 @@ return {
     require("nvterm").setup(opts)
     local terminal = require("nvterm.terminal")
 
-    vim.keymap.set({"n", "t"}, "<A-t>", function() terminal.toggle("horizontal") end)
+    vim.keymap.set({"n", "t"}, "<A-h>", function() terminal.toggle("horizontal") end)
+    vim.keymap.set({"n", "t"}, "<A-v>", function() terminal.toggle("vertical") end)
+
   end,
 }
