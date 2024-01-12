@@ -5,6 +5,10 @@ vim.opt.expandtab = true
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 
+-- use jj to exit insert mode
+local keymap = vim.keymap;
+keymap.set("i", "jj", "<Esc>");
+
 local augroup = vim.api.nvim_create_augroup   -- Create/get autocommand group
 local autocmd = vim.api.nvim_create_autocmd   -- Create autocommand
 

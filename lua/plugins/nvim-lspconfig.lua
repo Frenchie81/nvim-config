@@ -4,7 +4,8 @@ return {
   dependencies = {
     "hrsh7th/cmp-nvim-lsp",
     { "antosha417/nvim-lsp-file-operations", config = true },
-    { "simrat39/rust-tools.nvim" },
+    "simrat39/rust-tools.nvim",
+    "jmederosalvarado/roslyn.nvim",
   },
   config = function()
     local lspconfig = require("lspconfig")
@@ -13,7 +14,7 @@ return {
     local keymap = vim.keymap
 
     local opts = { noremap = true, silent = true }
-    local on_attach = function(client, bufnr)
+    local on_attach = function(_, bufnr)
       opts.buffer = bufnr
 
       opts.desc = "Show LSP references"
@@ -93,7 +94,7 @@ return {
       },
     })
 
-    lspconfig["csharp_ls"].setup({
+    require("roslyn").setup({
       on_attach = on_attach,
       capabilities = capabilities,
     })
@@ -111,5 +112,11 @@ return {
         }
       },
     })
+
+    lspconfig["terraformls"].setup({
+      on_attach = on_attach,
+      capabilities = capabilities,
+    })
+
   end,
 }
