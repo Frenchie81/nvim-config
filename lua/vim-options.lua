@@ -5,6 +5,12 @@ vim.opt.expandtab = true
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 
+if (os == "Windows_NT")
+then
+  vim.opt.shellslash = true
+end
+
+
 -- use jj to exit insert mode
 local keymap = vim.keymap;
 keymap.set("i", "jj", "<Esc>");

@@ -5,7 +5,7 @@ return {
     local os = vim.loop.os_uname().sysname
     if (os == "Windows_NT")
     then
-      opts.terminals = { shell = "PowerShell.exe" }
+      opts.terminals = { shell = "pwsh" }
     end
     require("nvterm").setup(opts)
     local terminal = require("nvterm.terminal")

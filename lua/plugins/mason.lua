@@ -28,5 +28,6 @@ return {
       },
       automatic_installation = true, -- this is for lsp config, not installations of lsps themselves
     })
+
   end,
 }
