@@ -9,6 +9,8 @@ vim.opt.splitright = true
 vim.opt.clipboard = "unnamedplus"
 vim.opt.scrolloff = 999
 vim.opt.wrap = false
+vim.opt.termguicolors = true
+vim.opt.virtualedit = "block"
 
 if (os == "Windows_NT")
 then
