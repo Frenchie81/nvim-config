@@ -31,7 +31,7 @@ return {
     end
 
     -- dotnet adapter
-    local commandpath = vim.fs.joinpath(vim.fn.stdpath("data")--[[@as string]], "mason", "packages", "netcoredbg", "netcoredbg", "netcoredbg")
+    local commandpath = vim.fn.stdpath("data")--[[@as string]] .. "/mason/packages/netcoredbg/netcoredbg/netcoredbg"
     dap.adapters.coreclr = {
       type = "executable",
       command = commandpath,
