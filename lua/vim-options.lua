@@ -1,4 +1,5 @@
 vim.g.mapleader = " "
+vim.opt.timeoutlen = 1000
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.expandtab = true

@@ -6,6 +6,7 @@ return {
     { "antosha417/nvim-lsp-file-operations", config = true },
     "simrat39/rust-tools.nvim",
     "jmederosalvarado/roslyn.nvim",
+    "Decodetalkers/csharpls-extended-lsp.nvim",
   },
   config = function()
     local lspconfig = require("lspconfig")
@@ -18,19 +19,19 @@ return {
       opts.buffer = bufnr
 
       opts.desc = "Show LSP references"
-      keymap.set("n", "gR", "<cmd>Telescope lsp_references<CR>", opts) -- show definition, references
+      keymap.set("n", "<leader>R", "<cmd>Telescope lsp_references<CR>", opts) -- show definition, references
 
       opts.desc = "Go to declaration"
-      keymap.set("n", "gD", vim.lsp.buf.declaration, opts) -- go to declartion
+      keymap.set("n", "<leader>D", vim.lsp.buf.declaration, opts) -- go to declartion
 
       opts.desc = "Show LSP definitions"
-      keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts) -- show lsp definitions
+      keymap.set("n", "<leader>d", "<cmd>Telescope lsp_definitions<CR>", opts) -- show lsp definitions
 
       opts.desc = "Show LSP implementations"
-      keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts) -- show implementations
+      keymap.set("n", "<leader>i", "<cmd>Telescope lsp_implementations<CR>", opts) -- show implementations
 
       opts.desc = "Show LSP type definitions"
-      keymap.set("n", "gt", "<cmd>Telescope lsp_type_definitions<CR>", opts) -- show type defs
+      keymap.set("n", "<leader>t", "<cmd>Telescope lsp_type_definitions<CR>", opts) -- show type defs
 
       opts.desc = "See available code actions"
       keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts) -- see available code actions
@@ -94,7 +95,12 @@ return {
       },
     })
 
+    local csharpls_extended = require("csharpls_extended")
     lspconfig["csharp_ls"].setup({
+      handlers = {
+        ["textDocument/definition"] = csharpls_extended.handler,
+        ["textDocument/typeDefinition"] = csharpls_extended.handler,
+      },
       on_attach = on_attach,
       capabilities = capabilities,
     })
