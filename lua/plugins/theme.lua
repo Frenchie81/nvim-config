@@ -1,9 +1,9 @@
 return {
-  "joshdick/onedark.vim",
+  "catppuccin/nvim",
   priority = 1000,
   opts = {
   },
   config = function()
-    vim.cmd [[colorscheme onedark]]
+    vim.cmd [[colorscheme catppuccin-mocha]]
   end,
 }
