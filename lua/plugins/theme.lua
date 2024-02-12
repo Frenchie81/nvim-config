@@ -1,9 +1,9 @@
 return {
-  "catppuccin/nvim",
+  "rebelot/kanagawa.nvim",
   priority = 1000,
   opts = {
   },
   config = function()
-    vim.cmd [[colorscheme catppuccin-mocha]]
+    vim.cmd [[colorscheme kanagawa-dragon]]
   end,
 }
