@@ -18,6 +18,9 @@ vim.keymap.set("n", "<leader>qq", ":qa<CR>", { desc = "Quit all windows" })
 vim.keymap.set("n", "<C-s>", ":w<CR>", { desc = "Save buffer" })
 vim.keymap.set("n", "<S-l>", ":bnext<CR>", { desc = "Next buffer" })
 vim.keymap.set("n", "<S-h>", ":bprevious<CR>", { desc = "Previous buffer" })
+vim.keymap.set("n", "<leader>bd", ":bd<CR>", { desc = "Close current buffer" })
+vim.keymap.set("n", "<leader>bo", ":%bd|e#<CR>", { desc = "Close all other buffers" })
+vim.keymap.set("n", "<leader>l", ":Lazy<CR>", { desc = "Open Lazy" })
 
 -- persistence.nvim
 vim.keymap.set("n", "<leader>qs", function()
