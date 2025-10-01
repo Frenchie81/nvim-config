@@ -10,7 +10,7 @@ return {
         local lspconfig = require("lspconfig")
 
         mason.setup({
-            ensure_installed = { "rust_analyzer" },
+            ensure_installed = { "rust_analyzer", "csharpier" },
             registries = {
                 "github:mason-org/mason-registry",
                 "github:Crashdummyy/mason-registry",
@@ -18,7 +18,7 @@ return {
         })
 
         mason_lspconfig.setup({
-            ensure_installed = { "lua_ls", "stylua", "csharpier", "roslyn" },
+            ensure_installed = { "lua_ls", "stylua" },
             handlers = {
                 function(server_name)
                     lspconfig[server_name].setup({})
