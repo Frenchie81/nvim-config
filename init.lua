@@ -69,6 +69,15 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     end,
 })
 
+-- Set indentation for lua files
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "lua",
+  callback = function()
+    vim.bo.tabstop = 2
+    vim.bo.shiftwidth = 2
+  end,
+})
+
 -- [[ lazy.nvim plugins ]]
 require("lazy").setup({
     spec = {

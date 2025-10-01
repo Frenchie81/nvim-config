@@ -9,18 +9,22 @@ return {
         local mason_lspconfig = require("mason-lspconfig")
         local lspconfig = require("lspconfig")
 
-    mason.setup({
-      ensure_installed = { "rust_analyzer" },
-    })
+        mason.setup({
+            ensure_installed = { "rust_analyzer" },
+            registries = {
+                "github:mason-org/mason-registry",
+                "github:Crashdummyy/mason-registry",
+            },
+        })
 
-    mason_lspconfig.setup({
-      ensure_installed = { "lua_ls", "stylua" },
-      handlers = {
-        function(server_name)
-          lspconfig[server_name].setup({})
-        end,
-      },
-    })
+        mason_lspconfig.setup({
+            ensure_installed = { "lua_ls", "stylua", "csharpier", "roslyn" },
+            handlers = {
+                function(server_name)
+                    lspconfig[server_name].setup({})
+                end,
+            },
+        })
 
         -- Global mappings.
         -- See `:help vim.diagnostic` for documentation on any of the below functions
