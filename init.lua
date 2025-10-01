@@ -22,6 +22,17 @@ vim.keymap.set("n", "<leader>bd", ":bd<CR>", { desc = "Close current buffer" })
 vim.keymap.set("n", "<leader>bo", ":%bd|e#<CR>", { desc = "Close all other buffers" })
 vim.keymap.set("n", "<leader>l", ":Lazy<CR>", { desc = "Open Lazy" })
 
+-- Window navigation
+vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Move to left window" })
+vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Move to lower window" })
+vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Move to upper window" })
+vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Move to right window" })
+vim.keymap.set("n", "<leader>wd", ":close<CR>", { desc = "Close window" })
+vim.keymap.set("n", "<leader>sl", ":vsplit<CR>", { desc = "Split window right" })
+vim.keymap.set("n", "<leader>sh", ":leftabove vsplit<CR>", { desc = "Split window left" })
+vim.keymap.set("n", "<leader>sj", ":split<CR>", { desc = "Split window below" })
+vim.keymap.set("n", "<leader>sk", ":topleft split<CR>", { desc = "Split window above" })
+
 -- persistence.nvim
 vim.keymap.set("n", "<leader>qs", function()
     require("persistence").load()
@@ -45,6 +56,8 @@ vim.opt.signcolumn = "yes"
 vim.opt.scrolloff = 8
 vim.opt.sidescrolloff = 8
 vim.diagnostic.config({ virtual_text = true })
+vim.opt.splitright = true
+vim.opt.splitbelow = true
 
 -- [[ Basic Autocmds ]]
 -- Highlight when yanking (copying) text
