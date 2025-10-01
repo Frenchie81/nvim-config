@@ -78,6 +78,15 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
+-- Set indentation for cs files
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "cs",
+  callback = function()
+    vim.bo.tabstop = 4
+    vim.bo.shiftwidth = 4
+  end,
+})
+
 -- [[ lazy.nvim plugins ]]
 require("lazy").setup({
     spec = {
