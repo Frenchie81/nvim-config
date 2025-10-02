@@ -16,7 +16,7 @@ return {
       desc = "Goto/Apply Next Edit Suggestion",
     },
     {
-      "<c-.>",
+      "<c-a>",
       function()
         require("sidekick.cli").focus()
       end,
@@ -34,17 +34,17 @@ return {
     {
       "<leader>ac",
       function()
-        require("sidekick.cli").toggle({ name = "claude", focus = true })
+        require("sidekick.cli").toggle({ name = "copilot", focus = true })
       end,
-      desc = "Sidekick Claude Toggle",
+      desc = "Sidekick Copilot Toggle",
       mode = { "n", "v" },
     },
     {
       "<leader>ag",
       function()
-        require("sidekick.cli").toggle({ name = "grok", focus = true })
+        require("sidekick.cli").toggle({ name = "gemini", focus = true })
       end,
-      desc = "Sidekick Grok Toggle",
+      desc = "Sidekick Gemini Toggle",
       mode = { "n", "v" },
     },
     {
