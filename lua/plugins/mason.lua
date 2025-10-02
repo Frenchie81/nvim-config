@@ -18,10 +18,15 @@ return {
     })
 
     mason_lspconfig.setup({
-      ensure_installed = { "lua_ls", "stylua" },
+      ensure_installed = { "lua_ls", "stylua", "copilot" },
       handlers = {
         function(server_name)
           lspconfig[server_name].setup({})
+        end,
+        copilot = function()
+          lspconfig.copilot.setup({
+            enabled = true,
+          })
         end,
       },
     })
