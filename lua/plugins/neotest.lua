@@ -13,6 +13,20 @@ return {
       end,
       desc = "Run all tests in file",
     },
+    {
+      "<leader>tr",
+      function()
+        require("neotest").run.run()
+      end,
+      desc = "Run nearest test",
+    },
+    {
+      "<leader>tl",
+      function()
+        require("neotest").run.run_last()
+      end,
+      desc = "Run last test",
+    },
   },
   config = function()
     require("neotest").setup({
