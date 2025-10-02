@@ -3,9 +3,7 @@ return {
   keys = {
     {
       "<leader>sr",
-      function()
-        require("grug-far").grug_far()
-      end,
+      ":GrugFar<cr>",
       desc = "Search and replace",
     },
   },
