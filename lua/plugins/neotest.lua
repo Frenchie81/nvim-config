@@ -27,11 +27,24 @@ return {
       end,
       desc = "Run last test",
     },
+    {
+      "<leader>td",
+      function()
+        require("neotest").run.run({ strategy = "dap" })
+      end,
+      desc = "Debug nearest test",
+    },
   },
   config = function()
     require("neotest").setup({
       adapters = {
-        require("neotest-vstest"),
+        require("neotest-vstest")({
+          dap_settings = {
+            type = "coreclr",
+            request = "launch",
+            name = "dap-cs-test",
+          },
+        }),
       },
     })
   end,

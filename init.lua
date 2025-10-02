@@ -22,6 +22,7 @@ vim.keymap.set("n", "<leader>bd", ":bd<CR>", { desc = "Close current buffer" })
 vim.keymap.set("n", "<leader>bo", ":%bd|e#<CR>", { desc = "Close all other buffers" })
 vim.keymap.set("n", "<leader>l", ":Lazy<CR>", { desc = "Open Lazy" })
 vim.keymap.set("n", "<leader>rr", ":LspRestart<CR>", { desc = "Restart LSP" })
+vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear search highlight" })
 
 -- Window navigation
 vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Move to left window" })

@@ -10,7 +10,7 @@ return {
     local lspconfig = require("lspconfig")
 
     mason.setup({
-      ensure_installed = { "rust_analyzer", "csharpier" },
+      ensure_installed = { "rust_analyzer", "csharpier", "netcoredbg" },
       registries = {
         "github:mason-org/mason-registry",
         "github:Crashdummyy/mason-registry",

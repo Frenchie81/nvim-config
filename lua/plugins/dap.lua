@@ -7,10 +7,18 @@ return {
 
     -- Virtual text for debugging
     "theHamsta/nvim-dap-virtual-text",
+
+    -- Mason integration
+    "jay-babu/mason-nvim-dap.nvim",
   },
   config = function()
     local dap = require("dap")
     local dapui = require("dapui")
+
+    require("mason-nvim-dap").setup({
+      ensure_installed = { "netcoredbg" },
+      handlers = {},
+    })
 
     dapui.setup()
 
@@ -35,5 +43,28 @@ return {
     vim.keymap.set("n", "<Leader>dr", dap.repl.open, { desc = "Open REPL" })
     vim.keymap.set("n", "<Leader>dl", dap.run_last, { desc = "Run last" })
     vim.keymap.set("n", "<Leader>du", dapui.toggle, { desc = "Toggle DAP UI" })
+    vim.keymap.set("n", "<F5>", dap.continue, { desc = "Continue" })
+    vim.keymap.set("n", "<F9>", dap.toggle_breakpoint, { desc = "Toggle breakpoint" })
+    vim.keymap.set("n", "<F10>", dap.step_over, { desc = "Step over" })
+    vim.keymap.set("n", "<F11>", dap.step_into, { desc = "Step into" })
+
+    dap.configurations.cs = {
+      {
+        type = "coreclr",
+        name = "launch - netcoredbg",
+        request = "launch",
+        program = function()
+          return vim.fn.input("Path to dll: ", vim.fn.getcwd() .. "/bin/Debug/", "file")
+        end,
+      },
+      {
+        type = "coreclr",
+        name = "dap-cs-test",
+        request = "launch",
+        program = "${command:get_neotest_cs_project_path}",
+      },
+    }
+
+    vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "DiagnosticError", linehl = "", numhl = "" })
   end,
 }
