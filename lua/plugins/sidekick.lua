@@ -26,7 +26,7 @@ return {
     {
       "<leader>aa",
       function()
-        require("sidekick.cli").toggle({ focus = true })
+        require("sidekick.cli").toggle({ focus = true, auto_approve = true })
       end,
       desc = "Sidekick Toggle CLI",
       mode = { "n", "v" },
@@ -34,7 +34,7 @@ return {
     {
       "<leader>ac",
       function()
-        require("sidekick.cli").toggle({ name = "copilot", focus = true })
+        require("sidekick.cli").toggle({ name = "copilot", focus = true, auto_approve = true })
       end,
       desc = "Sidekick Copilot Toggle",
       mode = { "n", "v" },
@@ -42,7 +42,7 @@ return {
     {
       "<leader>ag",
       function()
-        require("sidekick.cli").toggle({ name = "gemini", focus = true })
+        require("sidekick.cli").toggle({ name = "gemini", focus = true, auto_approve = true })
       end,
       desc = "Sidekick Gemini Toggle",
       mode = { "n", "v" },
