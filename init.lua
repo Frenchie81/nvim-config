@@ -15,26 +15,32 @@ vim.opt.rtp:prepend(lazypath)
 -- [[ Basic Keymaps ]]
 vim.g.mapleader = " " -- Make sure to set `mapleader` before lazy so your mappings are correct
 vim.keymap.set("i", "jj", "<Esc>", { desc = "Escape insert mode" })
-vim.keymap.set("n", "<leader>qq", ":qa<CR>", { desc = "Quit all windows" })
-vim.keymap.set("n", "<C-s>", ":w<CR>", { desc = "Save buffer" })
-vim.keymap.set("n", "<S-l>", ":bnext<CR>", { desc = "Next buffer" })
-vim.keymap.set("n", "<S-h>", ":bprevious<CR>", { desc = "Previous buffer" })
-vim.keymap.set("n", "<leader>bd", ":bd<CR>", { desc = "Close current buffer" })
-vim.keymap.set("n", "<leader>bo", ":%bd|e#<CR>", { desc = "Close all other buffers" })
-vim.keymap.set("n", "<leader>l", ":Lazy<CR>", { desc = "Open Lazy" })
-vim.keymap.set("n", "<leader>rr", ":LspRestart<CR>", { desc = "Restart LSP" })
+vim.keymap.set("n", "<leader>qq", "<cmd>qa<CR>", { desc = "Quit all windows" })
+vim.keymap.set("n", "<C-s>", "<cmd>w<CR>", { desc = "Save buffer" })
+vim.keymap.set("n", "<S-l>", "<cmd>bnext<CR>", { desc = "Next buffer" })
+vim.keymap.set("n", "<S-h>", "<cmd>bprevious<CR>", { desc = "Previous buffer" })
+vim.keymap.set("n", "<leader>bd", "<cmd>bd<CR>", { desc = "Close current buffer" })
+vim.keymap.set("n", "<leader>bo", "<cmd>%bd|e#<CR>", { desc = "Close all other buffers" })
+vim.keymap.set("n", "<leader>l", "<cmd>Lazy<CR>", { desc = "Open Lazy" })
+vim.keymap.set("n", "<leader>rr", "<cmd>LspRestart<CR>", { desc = "Restart LSP" })
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear search highlight" })
 
 -- Window navigation
-vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Move to left window" })
-vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Move to lower window" })
-vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Move to upper window" })
-vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Move to right window" })
-vim.keymap.set("n", "<leader>wd", ":close<CR>", { desc = "Close window" })
-vim.keymap.set("n", "<leader>sl", ":vsplit<CR>", { desc = "Split window right" })
-vim.keymap.set("n", "<leader>sh", ":leftabove vsplit<CR>", { desc = "Split window left" })
-vim.keymap.set("n", "<leader>sj", ":split<CR>", { desc = "Split window below" })
-vim.keymap.set("n", "<leader>sk", ":topleft split<CR>", { desc = "Split window above" })
+vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Go to Left Window", remap = true })
+vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Go to Lower Window", remap = true })
+vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Go to Upper Window", remap = true })
+vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Go to Right Window", remap = true })
+vim.keymap.set("n", "<leader>wd", "<cmd>close<CR>", { desc = "Close window" })
+vim.keymap.set("n", "<leader>sl", "<cmd>vsplit<CR>", { desc = "Split window right" })
+vim.keymap.set("n", "<leader>sh", "<cmd>leftabove vsplit<CR>", { desc = "Split window left" })
+vim.keymap.set("n", "<leader>sj", "<cmd>split<CR>", { desc = "Split window below" })
+vim.keymap.set("n", "<leader>sk", "<cmd>topleft split<CR>", { desc = "Split window above" })
+
+-- Resize window using <ctrl> arrow keys
+vim.keymap.set("n", "<C-Up>", "<cmd>resize +2<cr>", { desc = "Increase Window Height" })
+vim.keymap.set("n", "<C-Down>", "<cmd>resize -2<cr>", { desc = "Decrease Window Height" })
+vim.keymap.set("n", "<C-Left>", "<cmd>vertical resize -2<cr>", { desc = "Decrease Window Width" })
+vim.keymap.set("n", "<C-Right>", "<cmd>vertical resize +2<cr>", { desc = "Increase Window Width" })
 
 -- persistence.nvim
 vim.keymap.set("n", "<leader>qs", function()
@@ -98,5 +104,5 @@ require("lazy").setup({
   -- configure any options here
 })
 
--- The line beneath this is called `modeline`. See `:help modeline`
+-- The line beneath this is called `modeline`. See `<cmd>help modeline`
 -- vim: ts=2 sts=2 sw=2 et
