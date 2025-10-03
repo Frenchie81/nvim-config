@@ -41,6 +41,19 @@ return {
       end,
       desc = "Toggle test summary",
     },
+    {
+      "<leader>ti",
+      function()
+        for _, win in ipairs(vim.api.nvim_list_wins()) do
+          if vim.bo[vim.api.nvim_win_get_buf(win)].filetype == "neotest-output" then
+            vim.api.nvim_win_close(win, false)
+            return
+          end
+        end
+        require("neotest").output.open({ enter = true })
+      end,
+      desc = "Toggle test output",
+    },
   },
   config = function()
     require("neotest").setup({
