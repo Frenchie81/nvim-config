@@ -14,6 +14,7 @@ vim.opt.rtp:prepend(lazypath)
 
 -- [[ Basic Keymaps ]]
 vim.g.mapleader = " " -- Make sure to set `mapleader` before lazy so your mappings are correct
+vim.keymap.set("i", "jj", "<Esc>", { desc = "Escape insert mode" })
 vim.keymap.set("n", "<leader>qq", ":qa<CR>", { desc = "Quit all windows" })
 vim.keymap.set("n", "<C-s>", ":w<CR>", { desc = "Save buffer" })
 vim.keymap.set("n", "<S-l>", ":bnext<CR>", { desc = "Next buffer" })
