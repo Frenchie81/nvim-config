@@ -34,6 +34,13 @@ return {
       end,
       desc = "Debug nearest test",
     },
+    {
+      "<leader>to",
+      function()
+        require("neotest").summary.open()
+      end,
+      desc = "Open test summary",
+    },
   },
   config = function()
     require("neotest").setup({
