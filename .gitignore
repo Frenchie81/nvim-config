@@ -1,0 +1,29 @@
+# Neovim swap files
+*.swp
+*.swo
+*.swn
+*~
+
+# Backup files
+*.bak
+
+# Session files
+.vimcache
+
+# Plugin managers
+# vim-plug
+plugged/
+!plugged/.gitkeep
+autoload/plug.vim
+
+# packer.nvim
+plugin/packer_compiled.lua
+
+# lazy.nvim
+lazy-lock.json
+
+# OS-specific files
+.DS_Store
+
+# Telescope history (or similar plugin-generated files)
+.netrwhist
