@@ -37,9 +37,9 @@ return {
     {
       "<leader>to",
       function()
-        require("neotest").summary.open()
+        require("neotest").summary.toggle()
       end,
-      desc = "Open test summary",
+      desc = "Toggle test summary",
     },
   },
   config = function()
