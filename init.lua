@@ -67,6 +67,7 @@ vim.opt.sidescrolloff = 8
 vim.diagnostic.config({ virtual_text = true })
 vim.opt.splitright = true
 vim.opt.splitbelow = true
+vim.opt.hidden = true
 
 -- [[ Basic Autocmds ]]
 -- Highlight when yanking (copying) text
