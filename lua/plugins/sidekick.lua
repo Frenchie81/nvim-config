@@ -1,6 +1,5 @@
 return {
   "folke/sidekick.nvim",
-  commit = "e869205ff05a8defec31175e0f7f8f923e13cde6",
   opts = {
     -- add any options here
   },
