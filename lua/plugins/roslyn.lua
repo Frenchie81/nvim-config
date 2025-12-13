@@ -6,6 +6,6 @@ return {
   },
   opts = {
     -- Plugin options
-    filewatching = "roslyn",
+    filewatching = "auto",
   },
 }

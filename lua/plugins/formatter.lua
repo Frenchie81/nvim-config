@@ -44,9 +44,14 @@ return {
       jsonc = { "prettierd" },
       json5 = { "prettierd" },
     },
-    format_on_save = {
-      timeout_ms = 5000,
-      lsp_fallback = true,
-    },
+    format_on_save = function(bufnr)
+      if vim.bo[bufnr].filetype == "razor" or vim.bo[bufnr].filetype == "cshtml" then
+        return
+      end
+      return {
+        timeout_ms = 5000,
+        lsp_fallback = true,
+      }
+    end,
   },
 }
