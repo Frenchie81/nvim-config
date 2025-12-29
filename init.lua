@@ -107,6 +107,15 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
+-- Set indentation for javascript and typescript files
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "javascript", "typescript", "javascriptreact", "typescriptreact" },
+  callback = function()
+    vim.bo.tabstop = 2
+    vim.bo.shiftwidth = 2
+  end,
+})
+
 -- [[ lazy.nvim plugins ]]
 require("lazy").setup({
   spec = {
