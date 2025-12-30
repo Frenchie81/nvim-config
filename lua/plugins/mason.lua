@@ -6,7 +6,6 @@ return {
     "neovim/nvim-lspconfig",
   },
   config = function()
-    print("Mason config loaded!")
     local mason = require("mason")
     local mason_lspconfig = require("mason-lspconfig")
     local lspconfig = require("lspconfig")
@@ -20,7 +19,7 @@ return {
     })
 
     mason_lspconfig.setup({
-      ensure_installed = { "lua_ls", "stylua", "copilot", "tailwindcss-language-server" },
+      ensure_installed = { "lua_ls", "stylua", "copilot", "tailwindcss" },
       handlers = {
         function(server_name)
           lspconfig[server_name].setup({})
