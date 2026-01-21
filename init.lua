@@ -74,7 +74,7 @@ vim.opt.updatetime = 250
 vim.opt.signcolumn = "yes"
 vim.opt.scrolloff = 8
 vim.opt.sidescrolloff = 8
-vim.diagnostic.config({ virtual_text = true })
+
 vim.opt.splitright = true
 vim.opt.splitbelow = true
 vim.opt.hidden = true
