@@ -61,8 +61,6 @@ return {
         require("neotest-vstest")({
           dap_settings = {
             type = "coreclr",
-            request = "launch",
-            name = "dap-cs-test",
           },
         }),
       },

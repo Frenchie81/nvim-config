@@ -10,6 +10,9 @@ return {
 
     -- Mason integration
     "jay-babu/mason-nvim-dap.nvim",
+
+    -- c_sharp integration
+    "nicholasmata/nvim-dap-cs",
   },
   config = function()
     local dap = require("dap")
@@ -48,22 +51,40 @@ return {
     vim.keymap.set("n", "<F10>", dap.step_over, { desc = "Step over" })
     vim.keymap.set("n", "<F11>", dap.step_into, { desc = "Step into" })
 
-    dap.configurations.cs = {
-      {
-        type = "coreclr",
-        name = "launch - netcoredbg",
-        request = "launch",
-        program = function()
-          return vim.fn.input("Path to dll: ", vim.fn.getcwd() .. "/bin/Debug/", "file")
-        end,
+    -- dap.configurations.cs = {
+    --   {
+    --     type = "coreclr",
+    --     name = "launch - netcoredbg",
+    --     request = "launch",
+    --     program = function()
+    --       return vim.fn.input("Path to dll: ", vim.fn.getcwd() .. "/bin/Debug/", "file")
+    --     end,
+    --   },
+    --   {
+    --     type = "coreclr",
+    --     name = "dap-cs-test",
+    --     request = "launch",
+    --     program = "${command:get_neotest_cs_project_path}",
+    --   },
+    -- }
+
+    -- configure cs
+    require("dap-cs").setup({
+      dap_configurations = {
+        {
+          -- Must be "coreclr" or it will be ignored by the plugin
+          type = "coreclr",
+          name = "Attach remote",
+          mode = "remote",
+          request = "attach",
+        },
       },
-      {
-        type = "coreclr",
-        name = "dap-cs-test",
-        request = "launch",
-        program = "${command:get_neotest_cs_project_path}",
+      netcoredbg = {
+        -- the path to the executable netcoredbg which will be used for debugging.
+        -- by default, this is the "netcoredbg" executable on your PATH.
+        path = "netcoredbg",
       },
-    }
+    })
 
     vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "DiagnosticError", linehl = "", numhl = "" })
   end,

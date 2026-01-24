@@ -1,11 +1,8 @@
 return {
   "seblyng/roslyn.nvim",
-  dependencies = {
-    "nvim-lua/plenary.nvim",
-    "mfussenegger/nvim-dap",
-  },
+  ---@module 'roslyn.config'
+  ---@type RoslynNvimConfig
   opts = {
-    -- Plugin options
-    filewatching = "auto",
+    -- your configuration comes here; leave empty for default settings
   },
 }

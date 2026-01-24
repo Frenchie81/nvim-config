@@ -63,6 +63,13 @@ vim.keymap.set("n", "<leader>qd", function()
   require("persistence").stop()
 end, { desc = "Don't save current session" })
 
+-- lsp
+vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename)
+vim.keymap.set("n", "gD", vim.lsp.buf.declaration)
+vim.keymap.set("n", "gd", vim.lsp.buf.definition)
+vim.keymap.set("n", "gi", vim.lsp.buf.implementation)
+vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action)
+
 -- [[ Basic Options ]]
 vim.opt.number = true
 vim.opt.relativenumber = true
@@ -114,6 +121,11 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.bo.tabstop = 2
     vim.bo.shiftwidth = 2
   end,
+})
+
+vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
+  pattern = { "*.razor" },
+  command = "set filetype=razor",
 })
 
 -- [[ lazy.nvim plugins ]]
