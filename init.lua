@@ -1,3 +1,5 @@
+vim.opt.termguicolors = true
+
 -- [[ lazy.nvim setup ]]
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
