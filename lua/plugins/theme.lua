@@ -1,12 +1,8 @@
 return {
-  "catppuccin/nvim",
-  name = "catppuccin",
+  "Mofiqul/vscode.nvim",
+  name = "vscode",
   priority = 1000,
   config = function()
-    require("catppuccin").setup({
-      auto_integrations = true,
-    })
-
-    vim.cmd.colorscheme("catppuccin")
+    require("vscode").load("dark")
   end,
 }
