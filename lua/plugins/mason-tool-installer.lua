@@ -11,6 +11,7 @@ return {
         "prettier",
         "roslyn",
         "stylua",
+        "tree-sitter-cli",
       },
     })
   end,
