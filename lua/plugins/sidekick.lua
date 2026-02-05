@@ -30,6 +30,14 @@ return {
       mode = { "n", "t", "i", "x" },
     },
     {
+      "<c-a>",
+      function()
+        require("sidekick.cli").focus()
+      end,
+      desc = "Sidekick Toggle CLI",
+      mode = { "n", "t", "i", "x" },
+    },
+    {
       "<leader>aa",
       function()
         require("sidekick.cli").toggle()
