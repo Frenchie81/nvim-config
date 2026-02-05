@@ -12,6 +12,7 @@ return {
         "roslyn",
         "stylua",
         "tree-sitter-cli",
+        "terraform",
       },
     })
   end,

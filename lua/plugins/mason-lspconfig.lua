@@ -6,7 +6,7 @@ return {
   },
   config = function()
     require("mason-lspconfig").setup({
-      ensure_installed = { "lua_ls", "rust_analyzer", "html" },
+      ensure_installed = { "lua_ls", "rust_analyzer", "html", "terraformls" },
     })
   end,
 }
