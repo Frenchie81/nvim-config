@@ -14,6 +14,12 @@ return {
       "json",
       "razor",
       "xml",
+      "markdown",
+      "terraform",
+      "toml",
+      "dockerfile",
+      "yaml",
+      "sql",
     }
     ts.install(parsers)
 
@@ -23,9 +29,17 @@ return {
       javascript = "javascript",
       json = "json",
       razor = "razor",
+      cshtml = "razor",
       rust = "rust",
       css = "css",
       typescript = "typescript",
+      md = "markdown",
+      tf = "terraform",
+      toml = "toml",
+      dockerfile = "dockerfile",
+      yaml = "yaml",
+      yml = "yaml",
+      sql = "sql",
     }
 
     for ft, _ in pairs(ft_to_lang) do
