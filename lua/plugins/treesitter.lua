@@ -20,6 +20,7 @@ return {
       "dockerfile",
       "yaml",
       "sql",
+      "http",
     }
     ts.install(parsers)
 
@@ -40,6 +41,7 @@ return {
       yaml = "yaml",
       yml = "yaml",
       sql = "sql",
+      http = "http",
     }
 
     for ft, _ in pairs(ft_to_lang) do
