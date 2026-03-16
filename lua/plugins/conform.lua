@@ -10,6 +10,7 @@ return {
         ts = { "prettier" },
         json = { "prettier" },
         html = { "prettier" },
+        rust = { "rustfmt" },
       },
       format_on_save = {
         timeout_ms = 3000,
