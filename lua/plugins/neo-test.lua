@@ -63,6 +63,7 @@ return {
             type = "coreclr",
           },
         }),
+        require("rustaceanvim.neotest"),
       },
     })
   end,
