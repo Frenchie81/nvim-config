@@ -5,7 +5,7 @@ return {
     cli = {
       mux = {
         backend = "zellij",
-        enabled = vim.fn.has("win32") == 0,
+        enabled = true,
       },
     },
   },
