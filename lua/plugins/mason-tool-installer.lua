@@ -9,7 +9,7 @@ return {
         "csharpier",
         "netcoredbg",
         "prettier",
-        "roslyn",
+        { "roslyn", version = "5.4.0-2.26175.10" },
         "stylua",
         "tree-sitter-cli",
         "terraform",
