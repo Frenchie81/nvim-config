@@ -88,6 +88,13 @@ vim.opt.splitright = true
 vim.opt.splitbelow = true
 vim.opt.hidden = true
 
+if vim.fn.has("win32") == 1 then
+  vim.opt.shell = "pwsh"
+  vim.opt.shellcmdflag = "-NoProfile -Command"
+  vim.opt.shellquote = ""
+  vim.opt.shellxquote = ""
+end
+
 -- [[ Basic Autocmds ]]
 -- Highlight when yanking (copying) text
 vim.api.nvim_create_autocmd("TextYankPost", {
