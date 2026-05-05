@@ -4,8 +4,8 @@ return {
     -- add any options here
     cli = {
       mux = {
-        backend = "zellij",
-        enabled = vim.fn.has("win32") == 0,
+        backend = "tmux",
+        enabled = true,
       },
     },
   },
