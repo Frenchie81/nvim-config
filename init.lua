@@ -34,7 +34,7 @@ vim.keymap.set("n", "<leader>br", "<cmd>BufferLineCloseRight<CR>", { desc = "Clo
 vim.keymap.set("n", "<leader>bp", "<cmd>BufferLinePick<CR>", { desc = "Pick buffer to switch to" })
 vim.keymap.set("n", "<leader>bc", "<cmd>BufferLinePickClose<CR>", { desc = "Pick buffer to close" })
 vim.keymap.set("n", "<leader>l", "<cmd>Lazy<CR>", { desc = "Open Lazy" })
-vim.keymap.set("n", "<leader>rr", "<cmd>LspRestart<CR>", { desc = "Restart LSP" })
+vim.keymap.set("n", "<leader>rr", "<cmd>lsp restart<CR>", { desc = "Restart LSP" })
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear search highlight" })
 
 -- Window navigation
