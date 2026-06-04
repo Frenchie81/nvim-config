@@ -5,6 +5,13 @@ return {
       { "<leader>hs", desc = "Send request" },
       { "<leader>ha", desc = "Send all requests" },
       { "<leader>hb", desc = "Open scratchpad" },
+      {
+        "<leader>he",
+        function()
+          require("kulala").set_selected_env()
+        end,
+        desc = "Select environment",
+      },
     },
     ft = { "http", "rest" },
     opts = {
