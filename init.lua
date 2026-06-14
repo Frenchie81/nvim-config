@@ -37,6 +37,29 @@ vim.keymap.set("n", "<leader>l", "<cmd>Lazy<CR>", { desc = "Open Lazy" })
 vim.keymap.set("n", "<leader>rr", "<cmd>lsp restart<CR>", { desc = "Restart LSP" })
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear search highlight" })
 
+-- Message Redirection
+-- Show messages in a new buffer
+vim.keymap.set("n", "<leader>sm", function()
+  local messages = vim.fn.execute("messages")
+  local lines = vim.split(messages, "\n")
+  local buf = vim.api.nvim_create_buf(false, true)
+  vim.api.nvim_buf_set_lines(buf, 0, -1, false, lines)
+  vim.api.nvim_set_option_value("buftype", "nofile", { buf = buf })
+  vim.api.nvim_set_option_value("bufhidden", "wipe", { buf = buf })
+  vim.api.nvim_set_option_value("swapfile", false, { buf = buf })
+  vim.api.nvim_set_option_value("filetype", "messages", { buf = buf })
+
+  vim.cmd("vsplit")
+  vim.api.nvim_win_set_buf(0, buf)
+end, { desc = "Show messages in a buffer" })
+
+-- Copy messages to clipboard
+vim.keymap.set("n", "<leader>ym", function()
+  local messages = vim.fn.execute("messages")
+  vim.fn.setreg("+", messages)
+  vim.api.nvim_echo({ { "Messages copied to clipboard!", "Normal" } }, true, {})
+end, { desc = "Copy messages to clipboard" })
+
 -- Window navigation
 vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Go to Left Window", remap = true })
 vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Go to Lower Window", remap = true })
