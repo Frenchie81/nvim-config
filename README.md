@@ -11,7 +11,7 @@ A modern, fast, and feature-complete Neovim configuration built with [lazy.nvim]
 - **Rust Toolchain:** Deep Rust integration via [rustaceanvim](https://github.com/mrcjkb/rustaceanvim), rust-analyzer, `rustfmt`, and test runner integration.
 - **AI CLI Companion:** Integrated [sidekick.nvim](https://github.com/folke/sidekick.nvim) supporting Gemini CLI, Copilot CLI, Claude, and Next Edit Suggestions (`<tab>`).
 - **Modern Diagnostics & UI:** Inline curved diagnostics with [tiny-inline-diagnostic.nvim](https://github.com/rachartier/tiny-inline-diagnostic.nvim), smooth cursor animations with [smear-cursor.nvim](https://github.com/sphamba/smear-cursor.nvim), smooth scrolling with [neoscroll.nvim](https://github.com/karb94/neoscroll.nvim), and the clean [vscode.nvim](https://github.com/Mofiqul/vscode.nvim) Dark theme.
-- **Built-in REST & Database Tools:** In-editor HTTP client with [kulala.nvim](https://github.com/mistweaverco/kulala.nvim) and full SQL database management with [vim-dadbod-ui](https://github.com/kristijanhusak/vim-dadbod-ui).
+- **Built-in REST & Database Tools:** In-editor HTTP client with [nvim-http-client](https://github.com/heilgar/nvim-http-client) and full SQL database management with [vim-dadbod-ui](https://github.com/kristijanhusak/vim-dadbod-ui).
 
 ---
 
@@ -31,7 +31,7 @@ A modern, fast, and feature-complete Neovim configuration built with [lazy.nvim]
         ├── dadbod.lua                 # Database UI & SQL autocompletion
         ├── dap.lua                    # Debug Adapter Protocol & C#/.NET debugging
         ├── grug-far.lua               # Multi-file search and replace
-        ├── kulala.lua                 # REST API / HTTP client
+        ├── http-client.lua            # REST API / HTTP client
         ├── lualine.lua                # Statusline
         ├── mason-lspconfig.lua        # Mason LSP bridge
         ├── mason-tool-installer.lua   # Automatic Mason package installation
@@ -86,7 +86,7 @@ A modern, fast, and feature-complete Neovim configuration built with [lazy.nvim]
 - **[kristijanhusak/vim-dadbod-ui](https://github.com/kristijanhusak/vim-dadbod-ui)** – Simple, powerful database browser UI.
 - **[tpope/vim-dadbod](https://github.com/tpope/vim-dadbod)** – Modern database connection layer.
 - **[kristijanhusak/vim-dadbod-completion](https://github.com/kristijanhusak/vim-dadbod-completion)** – Autocompletion for SQL queries in buffer.
-- **[mistweaverco/kulala.nvim](https://github.com/mistweaverco/kulala.nvim)** – Minimalist in-editor REST/HTTP client.
+- **[heilgar/nvim-http-client](https://github.com/heilgar/nvim-http-client)** – Fast in-editor REST/HTTP client compatible with IntelliJ and VS Code .http specs.
 
 ### Navigation & UI
 - **[stevearc/oil.nvim](https://github.com/stevearc/oil.nvim)** – File system management in an ordinary Neovim buffer.
@@ -222,7 +222,7 @@ The leader key is configured to `<Space>`.
 | `<leader>ac` | Normal | Toggle Copilot CLI |
 | `<leader>ag` | Normal | Toggle Gemini CLI |
 
-### REST Client (`kulala.nvim`)
+### REST Client (`nvim-http-client`)
 
 Active in `.http` and `.rest` files:
 
@@ -230,8 +230,12 @@ Active in `.http` and `.rest` files:
 |---|---|---|
 | `<leader>hs` | Normal | Send HTTP request at cursor |
 | `<leader>ha` | Normal | Send all HTTP requests in buffer |
-| `<leader>hb` | Normal | Open scratchpad |
 | `<leader>he` | Normal | Select active environment |
+| `<leader>hf` | Normal | Select environment file (`.env.json`) |
+| `<leader>hx` | Normal | Stop running HTTP request |
+| `<leader>hc` | Normal | Copy curl command |
+| `<leader>hd` | Normal | Dry run HTTP request |
+| `<leader>hv` | Normal | Toggle verbose mode |
 
 ### Database Management (`vim-dadbod-ui`)
 
