@@ -9,7 +9,6 @@ return {
         "csharpier",
         "netcoredbg",
         "prettier",
-        "roslyn",
         "stylua",
         "tree-sitter-cli",
         "terraform",

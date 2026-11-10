@@ -3,6 +3,7 @@ return {
   build = ":TSUpdate",
   lazy = false,
   config = function()
+    require("nvim-treesitter.install").compilers = { "zig", "gcc", "clang" }
     local ts = require("nvim-treesitter")
     local parsers = {
       "c_sharp",
