@@ -27,3 +27,6 @@ lazy-lock.json
 
 # Telescope history (or similar plugin-generated files)
 .netrwhist
+
+# Local plans
+.opencode/plans/
