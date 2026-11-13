@@ -6,7 +6,17 @@ return {
   },
   config = function()
     require("mason-lspconfig").setup({
-      ensure_installed = { "lua_ls", "html", "terraformls", "roslyn_ls" },
+      ensure_installed = {
+        "lua_ls",
+        "html",
+        "cssls",
+        "jsonls",
+        "vtsls",
+        "eslint",
+        "tailwindcss",
+        "terraformls",
+        "roslyn_ls",
+      },
     })
   end,
 }

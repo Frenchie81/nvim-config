@@ -10,6 +10,8 @@ return {
       "html",
       "javascript",
       "typescript",
+      "tsx",
+      "jsdoc",
       "rust",
       "css",
       "json",
@@ -25,33 +27,33 @@ return {
     }
     ts.install(parsers)
 
-    local ft_to_lang = {
-      cs = "c_sharp",
-      html = "html",
-      javascript = "javascript",
-      json = "json",
-      razor = "razor",
-      cshtml = "razor",
-      rust = "rust",
-      css = "css",
-      typescript = "typescript",
-      md = "markdown",
-      tf = "terraform",
-      toml = "toml",
-      dockerfile = "dockerfile",
-      yaml = "yaml",
-      yml = "yaml",
-      sql = "sql",
-      http = "http",
-    }
-
-    for ft, _ in pairs(ft_to_lang) do
-      vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
-        pattern = "*." .. ft,
-        callback = function()
-          vim.treesitter.start()
-        end,
-      })
-    end
+    vim.api.nvim_create_autocmd("FileType", {
+      group = vim.api.nvim_create_augroup("custom-treesitter-start", { clear = true }),
+      pattern = {
+        "cs",
+        "html",
+        "javascript",
+        "javascriptreact",
+        "typescript",
+        "typescriptreact",
+        "json",
+        "jsonc",
+        "razor",
+        "cshtml",
+        "rust",
+        "css",
+        "scss",
+        "markdown",
+        "terraform",
+        "toml",
+        "dockerfile",
+        "yaml",
+        "sql",
+        "http",
+      },
+      callback = function(args)
+        pcall(vim.treesitter.start, args.buf)
+      end,
+    })
   end,
 }
